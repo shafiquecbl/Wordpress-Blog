@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-const String websiteUrl = 'https://newzfort.com';
-const String websiteName = 'NewzFort';
+const String websiteUrl = 'https://updatedsoftwares.com';
+const String baseUrl = 'https://updatedsoftwares.com/wp-content/uploads/';
+const String websiteName = 'Updated Softwares';
+const String websiteLogoUrl =
+    'https://updatedsoftwares.com/wp-content/uploads/2021/08/cropped-logo-1-01-1-1024x240.png';
 
 final Color greyColor = Colors.grey[100];
 const Color complexDrawerBlack = Color(0xff11111d);
@@ -13,3 +16,10 @@ const String photoURL =
 const String aboutUs = '';
 const String contactUS = '';
 const String privacyPolicy = '';
+
+// Social Media Links
+
+const String facebook = '';
+const String twitter = '';
+const String linkedin = '';
+const String instagram = '';

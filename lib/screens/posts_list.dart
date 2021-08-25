@@ -64,7 +64,7 @@ class _PostsListState extends State<PostsList> {
             child: RefreshIndicator(
               onRefresh: () async {
                 setState(() {
-                  // FetchData().fetchPosts();
+                  FetchData().fetchPosts(search);
                 });
               },
               child: StreamBuilder(

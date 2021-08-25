@@ -4,6 +4,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_wordpress/schemas/post.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share/share.dart';
+import 'package:wordpress_blog/constants.dart';
 
 class PostDetailsPage extends StatelessWidget {
   final Post post;
@@ -134,13 +135,15 @@ class PostDetailsPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: post.featuredMedia.link == null
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  color: greyColor,
+                  child: post.featuredMedia == null
                       ? Icon(Icons.image)
                       : CachedNetworkImage(
-                          imageUrl: post.featuredMedia.link,
+                          imageUrl:
+                              '${baseUrl + post.featuredMedia.mediaDetails.file}',
                           placeholder: (context, string) {
                             return Icon(Icons.image);
                           },

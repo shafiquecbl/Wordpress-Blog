@@ -11,8 +11,8 @@ class FetchData {
         .fetchPosts(
           postParams: wp.ParamsPostList(
               context: wp.WordPressContext.view,
-              // pageNum: 1,
-              // perPage: 10,
+              pageNum: 1,
+              perPage: 15,
               searchQuery: query),
           fetchCategories: true,
           fetchAuthor: true,
@@ -25,12 +25,14 @@ class FetchData {
     return posts;
   }
 
-  fetchPostsByCategory(int category) {
+  fetchPostsByCategory(int category, String search) {
     Stream<List<wp.Post>> posts = wordPress
         .fetchPosts(
-          postParams: wp.ParamsPostList(context: wp.WordPressContext.view,
-              // pageNum: 1,
-              // perPage: 10,
+          postParams: wp.ParamsPostList(
+              context: wp.WordPressContext.view,
+              pageNum: 1,
+              perPage: 50,
+              searchQuery: search,
               includeCategories: [category]),
           fetchCategories: true,
           fetchAuthor: true,

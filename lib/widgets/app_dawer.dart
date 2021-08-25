@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:wordpress_blog/widgets/Social_Media_Icons.dart';
+import 'package:wordpress_blog/widgets/button.dart';
+import 'package:wordpress_blog/widgets/divider.dart';
 import '../constants.dart';
 
 class MyAppDrawer extends StatelessWidget {
@@ -34,7 +36,7 @@ class MyAppDrawer extends StatelessWidget {
                   websiteName,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 26,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -42,67 +44,14 @@ class MyAppDrawer extends StatelessWidget {
             ),
             Expanded(
                 child: ListView(children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.all(15),
-                ),
-                onPressed: () {},
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'About Us',
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 19),
-                child: Divider(
-                  color: greyColor,
-                  thickness: 0.5,
-                ),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.all(15),
-                ),
-                onPressed: () {},
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Contact Us',
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 19),
-                child: Divider(
-                  color: greyColor,
-                  thickness: 0.5,
-                ),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.all(15),
-                ),
-                onPressed: () {},
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Privacy Policy',
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 19),
-                child: Divider(
-                  color: greyColor,
-                  thickness: 0.5,
-                ),
-              ),
+              MyButton(text: 'About Us', uRl: aboutUs),
+              MyDivider(),
+              MyButton(text: 'Contact Us', uRl: contactUS),
+              MyDivider(),
+              MyButton(text: 'Privacy Policy', uRl: privacyPolicy),
+              MyDivider(),
             ])),
+            SocialMedia(),
             accountTile()
           ],
         ));

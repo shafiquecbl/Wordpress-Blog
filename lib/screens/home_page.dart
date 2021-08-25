@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordpress_blog/constants.dart';
@@ -59,17 +60,35 @@ class _HomePageState extends State<HomePage> {
 
   AppBar appBar() {
     return AppBar(
-      iconTheme: IconThemeData.fallback(),
-      centerTitle: false,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      title: Text(
-        websiteName,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 26,
-          fontWeight: FontWeight.bold,
-        ),
+        iconTheme: IconThemeData.fallback(),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: websiteLogo());
+  }
+
+  Widget websiteLogo() {
+    return Container(
+      height: 45,
+      child: CachedNetworkImage(
+        imageUrl: websiteLogoUrl,
+        placeholder: (context, string) {
+          return websiteTitle();
+        },
+        errorWidget: (context, string, dynamic) {
+          return websiteTitle();
+        },
+      ),
+    );
+  }
+
+  Widget websiteTitle() {
+    return Text(
+      websiteName,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 26,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
